@@ -1,6 +1,13 @@
 .:53 {
-    file zone.kai kai.
     log
     errors
+
+    # Authoritative for the kai. zone
+    file /etc/coredns/zone.kai kai.
+
+    # Cache answers to be nice to upstreams
     cache 30
+
+    # Forward everything else to public resolvers
+    forward . 1.1.1.1 1.0.0.1 9.9.9.9
 }
