@@ -1,23 +1,26 @@
+#Dockerfile
+# ────────────────────────────────────────────────
 # IKANN CoreDNS Dockerfile — φ-KAI DNS Authority
-# Alpine + prebuilt coredns binary, runs on port 53 inside the container.
+# Uses Alpine for minimal image, runs on port 1053
+# ────────────────────────────────────────────────
 
-FROM alpine:3.20
+FROM alpine
 
-# Optional: bash for start.sh, plus ca-certificates for TLS to upstreams
-RUN apk add --no-cache bash ca-certificates
+# Optional: Install bash if your start.sh uses it
+RUN apk add --no-cache bash
 
 # Copy compiled CoreDNS binary and config files
 COPY coredns /coredns
 COPY Corefile /Corefile
-COPY zone.kai /etc/coredns/zone.kai
+COPY zone.kai /zone.kai
 COPY start.sh /start.sh
 
 # Set permissions
 RUN chmod +x /coredns /start.sh
 
-# Expose DNS port 53 (TCP/UDP)
+# Expose DNS port 1053 (TCP/UDP)
 EXPOSE 53/tcp
 EXPOSE 53/udp
 
-# Launch via start script
+# Launch via start script (must run CoreDNS with -dns.port=1053)
 CMD ["/start.sh"]
