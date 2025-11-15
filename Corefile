@@ -1,4 +1,3 @@
-//Corefile
 .:53 {
     log
     errors
