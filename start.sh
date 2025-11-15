@@ -1,13 +1,10 @@
 #!/bin/sh
-set -e
 
-echo "🚀 Starting Kai-CoreDNS Server..."
+# Render uses Linux container paths; set working dir
+cd "$(dirname "$0")"
 
-# Print Corefile and zone file for debug/logging
-echo "🧾 Corefile:"
-cat /Corefile
-echo "🌐 zone.kai:"
-cat /zone.kai
+# Optional: Handle GOMAXPROCS warning
+export GOMAXPROCS=1
 
-# Run CoreDNS with verbose logging
-/coredns -conf /Corefile
+# Run CoreDNS using relative paths
+exec ./coredns -conf Corefile
