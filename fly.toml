@@ -4,18 +4,18 @@ primary_region = "ams"
 [build]
 
 [[services]]
-  internal_port = 1053
+  internal_port = 53
   protocol = "tcp"
 
   [[services.ports]]
-    port = 1053
+    port = 53
 
 [[services]]
-  internal_port = 1053
+  internal_port = 53
   protocol = "udp"
 
   [[services.ports]]
-    port = 1053
+    port = 53
 
 [[vm]]
   memory = "1gb"
