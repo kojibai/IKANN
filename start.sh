@@ -1,9 +1,18 @@
 #!/bin/bash
 
+# Exit immediately if any command fails
 set -e
-echo "Starting CoreDNS with config:"
-cat /Corefile
-echo "Serving on port 1053 (DNS over UDP/TCP)"
 
-# Start CoreDNS directly
-exec /coredns -conf /Corefile
+# Log startup
+echo "────────────────────────────────────────────"
+echo "🌐 IKANN CoreDNS — Launching on port 1053"
+echo "────────────────────────────────────────────"
+echo ""
+echo "📜 Using Corefile:"
+cat /Corefile
+echo ""
+echo "📡 Serving DNS over TCP/UDP on port 1053"
+echo ""
+
+# Start CoreDNS using custom Corefile
+exec /coredns -dns.port=1053 -conf /Corefile
