@@ -1,0 +1,6 @@
+kai.:1053 {
+    file /Users/bjklock/Kai-Turah/IKANN/zone.kai kai.
+    log
+    errors
+    cache 30
+}

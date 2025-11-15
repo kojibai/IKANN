@@ -1,0 +1,18 @@
+$ORIGIN kai.
+$TTL 3600
+
+@ IN SOA ns1.kai.ac. root.kai.ac. (
+        2025111501 ; serial
+        7200       ; refresh
+        3600       ; retry
+        1209600    ; expire
+        3600 )
+
+    IN NS ns1.kai.ac.
+    IN NS ns2.kai.ac.
+
+verify     IN A 127.0.0.1
+sigil      IN A 127.0.0.1
+scroll     IN A 127.0.0.1
+realm      IN A 127.0.0.1
+apps       IN A 127.0.0.1
