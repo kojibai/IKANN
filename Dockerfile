@@ -1,6 +1,17 @@
-FROM coredns/coredns:latest
+FROM alpine
 
+# Optional: Install bash if needed
+RUN apk add --no-cache bash
+
+# Copy binaries and configs
+COPY coredns /coredns
 COPY Corefile /Corefile
-COPY zone.kai /app/zone.kai
+COPY zone.kai /zone.kai
+COPY start.sh /start.sh
 
-CMD ["-conf", "/Corefile"]
+# Make sure it's executable
+RUN chmod +x /coredns /start.sh
+
+EXPOSE 1053
+
+CMD ["/start.sh"]
