@@ -18,8 +18,8 @@ COPY start.sh /start.sh
 RUN chmod +x /coredns /start.sh
 
 # Expose DNS port 1053 (TCP/UDP)
-EXPOSE 1053/tcp
-EXPOSE 1053/udp
+EXPOSE 53/tcp
+EXPOSE 53/udp
 
 # Launch via start script (must run CoreDNS with -dns.port=1053)
 CMD ["/start.sh"]
