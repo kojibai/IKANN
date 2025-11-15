@@ -6,18 +6,18 @@ primary_region = "ams"
 [[services]]
   internal_port = 53
   protocol = "tcp"
-
+  processes = ["app"]
   [[services.ports]]
     port = 53
 
 [[services]]
   internal_port = 53
   protocol = "udp"
-
+  processes = ["app"]
   [[services.ports]]
     port = 53
 
-[[vm]]
+[vm]
   memory = "1gb"
   cpu_kind = "shared"
   cpus = 1
