@@ -1,44 +1,23 @@
-# fly.toml — IKANN CoreDNS deployment
-# DNS-over-TCP/UDP on port 1053 (no HTTP)
+# fly.toml app configuration file generated for ikann on 2025-11-15T21:15:46Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
-app = "ikann"
-primary_region = "iad"
+app = 'ikann'
+primary_region = 'ams'
 
 [build]
-# Uses Dockerfile in project root (no buildpacks needed)
 
-[env]
-PORT = "1053"
-
-# Enable automatic rollback on failure
-[experimental]
-  auto_rollback = true
-
-# 🔹 UDP DNS service on port 1053
-[[services]]
+[http_service]
   internal_port = 1053
-  protocol = "udp"
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
 
-  [[services.ports]]
-    port = 1053
-    handlers = ["udp"]  # DNS over UDP
-
-# 🔹 TCP DNS service on port 1053
-[[services]]
-  internal_port = 1053
-  protocol = "tcp"
-
-  [[services.ports]]
-    port = 1053
-    handlers = []  # raw TCP (no TLS handler for DNS)
-
-  [services.concurrency]
-    type = "connections"
-    hard_limit = 25
-    soft_limit = 20
-
-# VM Size
-[vm]
-  memory = "1gb"
-  cpu_kind = "shared"
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
   cpus = 1
+  memory_mb = 1024
