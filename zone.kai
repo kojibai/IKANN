@@ -2,7 +2,7 @@ $ORIGIN kai.
 $TTL 3600
 
 @ IN SOA ns1.kai.ac. root.kai.ac. (
-        2025111503 ; serial (bump whenever you change the zone)
+        2025111504 ; serial (bump whenever you change the zone)
         7200       ; refresh
         3600       ; retry
         1209600    ; expire
@@ -12,7 +12,7 @@ $TTL 3600
     IN NS ns2.kai.ac.
 
 ; verify.kai is served by your Vercel app
-verify      IN CNAME  verify-kai.vercel.app.
+verify      IN CNAME  kai.ac.
 
 ; These hosts are served by your Fly IPs
 sigil       IN A      66.241.124.69

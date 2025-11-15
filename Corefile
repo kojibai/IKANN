@@ -1,3 +1,4 @@
+# IKANN CoreDNS — φ-KAI DNS Authority
 .:53 {
     log
     errors
