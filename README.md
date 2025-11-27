@@ -91,7 +91,7 @@ This is public information by design — identical to any DNS root zone.
 
 Clone the repo:
 
-git clone https://github.com/YOUR_ORG/IKANN.git
+git clone https://github.com/kojibai/IKANN.git
 cd IKANN
 
 Build or pull the container:
