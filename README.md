@@ -1,5 +1,5 @@
 
-# 🌐 IKANN — Sovereign Alt-Root DNS for the Kai Web  
+# 🌐 IKANN — Alt-Root DNS for the Sovereign Web  
 ### Reference Implementation of the IKANN Root Resolver  
 **Authoritative DNS for the `.kai` Top-Level Domain**
 
