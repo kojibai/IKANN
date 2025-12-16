@@ -10,6 +10,7 @@ RUN apk add --no-cache bash ca-certificates
 COPY coredns /coredns
 COPY Corefile /Corefile
 COPY zone.kai /etc/coredns/zone.kai
+COPY zone.phi /etc/coredns/zone.phi
 COPY start.sh /start.sh
 
 # Set permissions

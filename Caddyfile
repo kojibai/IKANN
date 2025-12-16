@@ -1,0 +1,52 @@
+{
+  http_port 8080
+  https_port 8443
+  admin 127.0.0.1:2019
+}
+
+(common) {
+  encode zstd gzip
+  header {
+    X-Content-Type-Options "nosniff"
+    Referrer-Policy "no-referrer"
+  }
+}
+
+# Redirect plaintext -> HTTPS (local ports)
+http://verify.kai, http://verify.phi,
+http://sigil.kai,  http://sigil.phi,
+http://scroll.kai, http://scroll.phi,
+http://realm.kai,  http://realm.phi,
+http://apps.kai,   http://apps.phi {
+  redir https://{host}:8443{uri} permanent
+}
+
+verify.kai, verify.phi {
+  import common
+  tls internal
+  reverse_proxy 127.0.0.1:3001
+}
+
+sigil.kai, sigil.phi {
+  import common
+  tls internal
+  reverse_proxy 127.0.0.1:3001
+}
+
+scroll.kai, scroll.phi {
+  import common
+  tls internal
+  reverse_proxy 127.0.0.1:3002
+}
+
+realm.kai, realm.phi {
+  import common
+  tls internal
+  reverse_proxy 127.0.0.1:3003
+}
+
+apps.kai, apps.phi {
+  import common
+  tls internal
+  reverse_proxy 127.0.0.1:3004
+}
