@@ -1,4 +1,4 @@
-$ORIGIN kai.
+$ORIGIN phi.
 $TTL 3600
 
 @ IN SOA ns1.kai.ac. root.kai.ac. (
@@ -11,9 +11,10 @@ $TTL 3600
     IN NS ns1.kai.ac.
     IN NS ns2.kai.ac.
 
-; verify.kai is served by your Vercel app
+; verify.phi is served by your Vercel app
 ; Vercel wants an A record pointing at 216.198.79.1
 verify      IN A      216.198.79.1
+
 
 ; These hosts are served by your Fly app (IKANN / future apps)
 sigil       IN A      137.66.18.241
